@@ -1,0 +1,18 @@
+
+buildscript {
+    repositories {
+        maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "0.2.5"
+}
+
+apply plugin: 'org.jetbrains.intellij'
+intellij {
+    version 'IC-2017.1.4'
+    pluginName 'Simple-IntelliJ-Plugin'
+    updateSinceUntilBuild false
+    plugins 'coverage'
+}
