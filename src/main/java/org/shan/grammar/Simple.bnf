@@ -1,0 +1,24 @@
+{
+    tokens = [
+        IDENTIFIER = 'regexp:[a-zA-Z_][a-zA-Z0-9_]*'
+        WHITE_SPACE = 'regexp:\s+'
+    ]
+}
+
+SimpleFile ::= Definition*
+
+Definition ::= FunctionDefinition
+
+FunctionDefinition ::= function IDENTIFIER '(' ')' (returns Type)? '{' FunctionBody '}'
+
+FunctionBody ::= Statement*
+
+Statement ::= VariableDefinition | AssignmentStatement | FunctionInvocation
+
+VariableDefinition ::= Type IDENTIFIER (';' | ('=' FunctionInvocation)?)
+
+Type ::= int | string
+
+AssignmentStatement ::= IDENTIFIER '=' FunctionInvocation
+
+FunctionInvocation ::= IDENTIFIER '(' ')' ';'
