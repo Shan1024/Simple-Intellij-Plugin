@@ -1,4 +1,28 @@
 {
+    // Name and the location of the parser which will be generated.
+    parserClass="org.shan.parser.SimpleParser"
+
+    // All nodes will extend this class. This wraps AST node to a PSI node.
+    extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    // Prefix for all generated classes.
+    psiClassPrefix="Simple"
+    // Suffix for implementation classes.
+    psiImplClassSuffix="Impl"
+
+    // Location to be used when generating PSI classes.
+    psiPackage="org.shan.psi"
+    // Location to be used when generating PSI implementation classes.
+    psiImplPackage="org.shan.psi.impl"
+
+    // Element type holder class name. This class will be used extensively throughout the tutorial.
+    elementTypeHolderClass="org.shan.psi.SimpleTypes"
+
+    // Class which will be used to create internal nodes.
+    elementTypeClass="org.shan.psi.SimpleElementType"
+    // Class which will be used to create leaf nodes.
+    tokenTypeClass="org.shan.psi.SimpleTokenType"
+  
     tokens = [
         IDENTIFIER = 'regexp:[a-zA-Z_][a-zA-Z0-9_]*'
         WHITE_SPACE = 'regexp:\s+'
